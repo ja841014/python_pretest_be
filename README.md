@@ -12,6 +12,20 @@
 ## API
 
 # GET api/users
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "testuser",
+            "point": 11
+        },
+        {
+            "id": 3,
+            "name": "newuser",
+            "point": 0
+        },
+    ]
+}
 
 # POST api/users
 {
