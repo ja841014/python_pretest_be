@@ -10,7 +10,7 @@ from django.http import HttpResponseServerError
 
 
 def user(request):
-
+    # Get all users
     if request.method == 'GET':
         users = []
         try:
@@ -25,10 +25,11 @@ def user(request):
             return HttpResponseServerError(f"An error occurred: {str(e)}")
         else:
             return JsonResponse({'users': users})
-
+    # Create a new user
     elif request.method == 'POST':
         try:
             data = json.loads(request.body)
+            # print(data)
             username = data.get('name')
         except Exception as e:
             return HttpResponseServerError(f"An error occurred: {str(e)}")
@@ -42,8 +43,10 @@ def user(request):
 
 
 def modify_points(request):
+    # modify point for the user
     try:
         data = json.loads(request.body)
+        # print(data)
         user = User.objects.get(id=int(data["id"]) )
         point = int(data["point"])
     except Exception as e:
