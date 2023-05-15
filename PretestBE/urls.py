@@ -21,6 +21,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/users', views.user),
-    path('api/users/points', views.modify_points),
+    path('api/users', views.user, name='users'),
+    path('api/users/points', views.modify_points, name='points'),
 ]
